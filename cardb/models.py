@@ -29,7 +29,7 @@ class auto(models.Model):
 
 
 class wypadek(models.Model):
-    wypadekid = models.IntegerField(db_column='wypadekID') 
+    wypadekid = models.IntegerField(db_column='wypadekID',primary_key=True) 
     data_wypadku = models.DateField() 
     nr_rejestracyjny = models.CharField(max_length=7)
     wartosc_straty = models.IntegerField() 
