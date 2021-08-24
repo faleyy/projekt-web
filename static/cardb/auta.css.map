@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,KAAK,CAAA;EACD,OAAO,EAAE,OAAO;CACnB",
+    "sources": [
+        "auta.scss"
+    ],
+    "names": [],
+    "file": "auta.css"
+}

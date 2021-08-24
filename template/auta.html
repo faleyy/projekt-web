@@ -1,8 +1,25 @@
 {% extends 'base.html' %}
+{% load static %}
+{% block head %}
+ <link rel="stylesheet" href="{% static 'cardb/auta.css' %}" type="text/css" />
+<title>Auta</title>
+{% endblock head %}
+
 {% block content %}
-{% for auto in auta %}
-<p>
-  {{auto.nr_rejestracyjny}} {{auto.marka}} {{auto.rok_produkcji}} {{auto.pesel}}
-</p>
-{% endfor %}
+<table>
+    <tr>
+        <th>Nr Rejestracyjny</th>
+        <th>Marka</th>
+        <th>Rok Produkcji</th>
+        <th>Pesel</th>
+    </tr>
+    {% for auto in auta  %}
+    <tr>
+        <td>{{auto.nr_rejestracyjny}}</td>
+        <td>{{auto.marka}}</td>
+        <td>{{auto.rok_produkcji}}</td>
+        <td>{{auto.pesel}}</td>
+    </tr>
+    {% endfor %}
+</table>
 {% endblock content %}

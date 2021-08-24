@@ -1,10 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Cabin+Condensed:wght@400;700&display=swap');
 body {
-  background: #c5c4c4a2;
+  background: #bebdbd75;
   margin: 0;
+  font-family: 'Cabin Condensed', sans-serif;
 }
 
 .navbar {
-  background: #80d8dfa2;
-  padding: 2;
+  background: #82dbf1;
+  padding: 2em;
+
+  .logo{
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 2em;
+    color: black;
+
+      span{
+        color: red;
+      }
+  }
+  .container{
+    display: flex;
+    place-content: space-between;
+
+    ul{
+      display: flex;
+      place-content: space-between;
+
+      li{
+        padding: 0em 1.5em;
+      }
+      
+      a{
+        color: black;
+      }
+    }
+  }
 }
-  
+ul{
+  list-style-type: none;
+}
+a{
+  text-decoration: none;
+}
