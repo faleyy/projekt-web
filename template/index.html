@@ -1,29 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Projekt Web</title>
-    <link rel="stylesheet" href="css/index.css" />
-  </head>
-  <body>
-    <div class="navbar">
-      <div class="container">
-        <a href="">Projekt<span>Web</span></a>
-        <nav>
-          <ul>
-            <li><a href="osoby">Osoby</a></li>
-            <li><a href="auta">Auta</a></li>
-            <li><a href="wypadki">Wypadki</a></li>
-          </ul>
-        </nav>
-      </div>
-    </div>
-    <section>
-      <div class="left-box">
-        <button></button>
-      </div>
-    </section>
-  </body>
-</html>
+{% extends 'base.html' %} 
+{% load static %} 
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'cardb/index.css' %}" type="text/css" />
+<title>Projekt Web</title>
+{% endblock head %} 
+
+{% block content %}
+<section>
+  <div class="left-box">
+    <a href="osoby">Osoby</a>
+  </div>
+  <div class="middle-box">
+    <a href="auta">Auta</a>
+  </div>
+  <div class="right-box">
+    <a href="wypadki">Wypadki</a>
+  </div>
+</section>
+{% endblock content %}
