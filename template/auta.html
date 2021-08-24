@@ -1,5 +1,8 @@
-{%for auto in auta %}
+{% extends 'base.html' %}
+{% block content %}
+{% for auto in auta %}
 <p>
   {{auto.nr_rejestracyjny}} {{auto.marka}} {{auto.rok_produkcji}} {{auto.pesel}}
 </p>
 {% endfor %}
+{% endblock content %}

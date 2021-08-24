@@ -1,4 +1,18 @@
-.navbar {
-  background: #616060a2;
+section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  place-content: space-between;
+  font-size: 4em;
+  padding: 4em 1em;
+}
+
+section a {
+  color: #272727;
+}
+
+section .box {
+  background: #82dbf1;
+  padding: 1em 2em;
 }
 /*# sourceMappingURL=index.css.map */

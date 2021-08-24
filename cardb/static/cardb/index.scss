@@ -1,0 +1,14 @@
+section{
+    a{
+        color: rgb(39, 39, 39);
+    }
+    display: flex;
+    place-content: space-between;
+    font-size: 4em;
+    padding: 4em 1em;
+    
+    .box{
+        background: #82dbf1;
+        padding: 1em 2em;
+    }
+}
