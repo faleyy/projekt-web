@@ -1,11 +1,36 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block head %}
- <link rel="stylesheet" href="{% static 'cardb/auta.css' %}" type="text/css" />
+<link rel="stylesheet" href="{% static 'cardb/auta.css' %}" type="text/css" />
 <title>Auta</title>
 {% endblock head %}
 
 {% block content %}
+
+<form method="get">
+    <div class="nrrej">
+        <label for="id_nr_rejestracyjny">Nr Rejestracyjny:</label>
+        {{myFilter.form.nr_rejestracyjny__icontains}}
+    </div>
+    <div class="marka">
+        <label for="id_marka">Marka:</label>
+        {{myFilter.form.marka__icontains}}
+    </div>
+    <div class="rok">
+        <label for="id_rok_produkcji_gte">Rok Produkcji od:</label>
+        {{myFilter.form.rok_produkcji__gte}}
+    </div>
+    <div class="rok">
+        <label for="id_rok_produkcji_lte">do:</label>
+        {{myFilter.form.rok_produkcji__lte}}
+    </div>
+    <div class="pesel">
+    <label for="id_pesel">Pesel:</label>
+    {{myFilter.form.pesel__icontains}}
+    </div>
+    <input type="submit" value="Szukaj" class="search"/>
+</form>
+
 <table>
     <tr>
         <th>Nr Rejestracyjny</th>
@@ -13,7 +38,7 @@
         <th>Rok Produkcji</th>
         <th>Pesel</th>
     </tr>
-    {% for auto in auta  %}
+    {% for auto in auta %}
     <tr>
         <td>{{auto.nr_rejestracyjny}}</td>
         <td>{{auto.marka}}</td>

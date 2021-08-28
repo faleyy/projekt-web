@@ -1,12 +1,35 @@
+form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 2em 4em;
+}
+
+form .nrrej input {
+  width: 5em;
+}
+
+form .marka input {
+  width: 7em;
+}
+
+form .rok input {
+  width: 3.5em;
+}
+
+form .pesel input {
+  width: 7em;
+}
+
 table {
   padding: 2em 5em;
   font-size: 1.5em;
   margin: auto;
-  width: 50%;
+  width: 1000px;
+  border-spacing: 1px;
 }
 
 table tr, table th, table td {
   border: 1px solid black;
-  border-collapse: collapse;
 }
 /*# sourceMappingURL=auta.css.map */
