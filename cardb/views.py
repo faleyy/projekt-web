@@ -6,8 +6,9 @@ def auta(request):
     data = auto.objects.all()
     myFilter = autoFilter(request.GET, queryset=data)
     data = myFilter.qs
-
-    return render(request, 'auta.html', {"auta":data,"myFilter":myFilter})
+    mySort = request.GET.get('sortid','nr_rejestracyjny')
+    data = data.order_by(mySort)
+    return render(request, 'auta.html', {"auta":data,"myFilter":myFilter,"mySort":mySort})
 
 
 def index(request):

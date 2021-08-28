@@ -27,7 +27,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'cardb',
-    'django_filters'
+    'django_filters',
 ]
 
 MIDDLEWARE = [
@@ -58,6 +58,10 @@ TEMPLATES = [
         },
     },
 ]
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'django.core.context_processors.request',
+)
 
 WSGI_APPLICATION = 'core.wsgi.application'
 

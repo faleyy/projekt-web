@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load cardb_tags %}
 {% block head %}
 <link rel="stylesheet" href="{% static 'cardb/auta.css' %}" type="text/css" />
 <title>Auta</title>
@@ -30,14 +31,22 @@
     </div>
     <input type="submit" value="Szukaj" class="search"/>
 </form>
-
 <table>
+    {% comment %} {% if  request.get_full_path == '/auta/' %}
     <tr>
-        <th>Nr Rejestracyjny</th>
-        <th>Marka</th>
-        <th>Rok Produkcji</th>
-        <th>Pesel</th>
+        <th>Nr Rejestracyjny <a href="{{request.get_full_path}}?sortid=nr_rejestracyjny">sort</a></th>
+        <th>Marka<a href="{{request.get_full_path}}?sortid=marka">sort</a></th>
+        <th>Rok Produkcji<a href="{{request.get_full_path}}?sortid=rok_produkcji">sort</a></th>
+        <th>Pesel<a href="{{request.get_full_path}}?sortid=pesel">sort</a></th>
     </tr>
+    {% else %} {% endcomment %}
+    <tr>
+        <th>Nr Rejestracyjny <a href="{{request.path}}?{% url_replace 'sortid' 'nr_rejestracyjny' %}">sort</a></th>
+        <th>Marka<a href="{{request.path}}?{% url_replace 'sortid' 'marka' %}">sort</a></th>
+        <th>Rok Produkcji<a href="{{request.path}}?{% url_replace 'sortid' 'rok_produkcji' %}">sort</a></th>
+        <th>Pesel<a href="{{request.path}}?{% url_replace 'sortid' 'pesel' %}">sort</a></th>
+    </tr>
+    {% comment %} {% endif %} {% endcomment %}
     {% for auto in auta %}
     <tr>
         <td>{{auto.nr_rejestracyjny}}</td>
