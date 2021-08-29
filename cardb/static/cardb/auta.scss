@@ -31,4 +31,10 @@ table{
     tr, th, td{
         border: 1px solid black;
     }
+    img{
+        width: 30px;
+        height: 30px;
+        position: relative;
+        float: inline-end;
+    }
 }

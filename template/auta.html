@@ -32,21 +32,36 @@
     <input type="submit" value="Szukaj" class="search"/>
 </form>
 <table>
-    {% comment %} {% if  request.get_full_path == '/auta/' %}
     <tr>
-        <th>Nr Rejestracyjny <a href="{{request.get_full_path}}?sortid=nr_rejestracyjny">sort</a></th>
-        <th>Marka<a href="{{request.get_full_path}}?sortid=marka">sort</a></th>
-        <th>Rok Produkcji<a href="{{request.get_full_path}}?sortid=rok_produkcji">sort</a></th>
-        <th>Pesel<a href="{{request.get_full_path}}?sortid=pesel">sort</a></th>
+        <th>Nr Rejestracyjny <a href="{{request.path}}?{% url_replace 'sortid' 'nr_rejestracyjny' %}">
+            {% if mySort == 'nr_rejestracyjny' %}
+            <img src="{% static 'cardb/sort-button-desc.png' %}" alt="sort button descending">
+            {% else %}
+            <img src="{% static 'cardb/sort-button.png' %}" alt="sort button">
+            {% endif %}
+        </a></th>
+        <th>Marka<a href="{{request.path}}?{% url_replace 'sortid' 'marka' %}">
+            {% if mySort == 'marka' %}
+            <img src="{% static 'cardb/sort-button-desc.png' %}" alt="sort button descending">
+            {% else %}
+            <img src="{% static 'cardb/sort-button.png' %}" alt="sort button">
+            {% endif %}
+        </a></th>
+        <th>Rok Produkcji<a href="{{request.path}}?{% url_replace 'sortid' 'rok_produkcji' %}">
+            {% if mySort == 'rok_produkcji' %}
+            <img src="{% static 'cardb/sort-button-desc.png' %}" alt="sort button descending">
+            {% else %}
+            <img src="{% static 'cardb/sort-button.png' %}" alt="sort button">
+            {% endif %}
+        </a></th>
+        <th>Pesel<a href="{{request.path}}?{% url_replace 'sortid' 'pesel' %}">
+            {% if mySort == 'pesel' %}
+            <img src="{% static 'cardb/sort-button-desc.png' %}" alt="sort button descending">
+            {% else %}
+            <img src="{% static 'cardb/sort-button.png' %}" alt="sort button">
+            {% endif %}
+        </a></th>
     </tr>
-    {% else %} {% endcomment %}
-    <tr>
-        <th>Nr Rejestracyjny <a href="{{request.path}}?{% url_replace 'sortid' 'nr_rejestracyjny' %}">sort</a></th>
-        <th>Marka<a href="{{request.path}}?{% url_replace 'sortid' 'marka' %}">sort</a></th>
-        <th>Rok Produkcji<a href="{{request.path}}?{% url_replace 'sortid' 'rok_produkcji' %}">sort</a></th>
-        <th>Pesel<a href="{{request.path}}?{% url_replace 'sortid' 'pesel' %}">sort</a></th>
-    </tr>
-    {% comment %} {% endif %} {% endcomment %}
     {% for auto in auta %}
     <tr>
         <td>{{auto.nr_rejestracyjny}}</td>

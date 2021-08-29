@@ -32,4 +32,11 @@ table {
 table tr, table th, table td {
   border: 1px solid black;
 }
+
+table img {
+  width: 30px;
+  height: 30px;
+  position: relative;
+  float: inline-end;
+}
 /*# sourceMappingURL=auta.css.map */
