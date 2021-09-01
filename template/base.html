@@ -15,9 +15,22 @@
         <a class="logo" href="">Projekt<span>Web</span></a>
         <nav>
           <ul>
-            <li><a href="osoby">Osoby</a></li>
-            <li><a href="auta">Auta</a></li>
-            <li><a href="wypadki">Wypadki</a></li>
+          {{request.path}}
+            {% if request.path == '/osoby/' %}
+            <li class="index-hl"><a href="osoby">Osoby</a></li>
+            {% else %}
+            <li class="index"><a href="osoby">Osoby</a></li>
+            {% endif %}
+            {% if request.path == '/auta/' %}
+            <li class="index-hl"><a href="auta">Auta</a></li>
+            {% else %}
+            <li class="index"><a href="auta">Auta</a></li>
+            {% endif %}
+            {% if request.path == '/wypadki/' %}
+            <li class="index-hl"><a href="wypadki">Wypadki</a></li>
+            {% else %}
+            <li class="index"><a href="wypadki">wypadki</a></li>
+            {% endif %}
           </ul>
         </nav>
       </div>

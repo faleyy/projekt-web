@@ -35,6 +35,12 @@ body {
   place-content: space-between;
 }
 
+.navbar .container ul .index-hl {
+  text-decoration: underline;
+  color: red;
+  font-weight: 700;
+}
+
 .navbar .container ul li {
   padding: 0em 1.5em;
 }

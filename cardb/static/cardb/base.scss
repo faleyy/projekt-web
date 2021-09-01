@@ -26,6 +26,11 @@ body {
     ul{
       display: flex;
       place-content: space-between;
+      .index-hl{
+        text-decoration: underline;
+        color: red;
+        font-weight: 700;
+      }
 
       li{
         padding: 0em 1.5em;
