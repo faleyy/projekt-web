@@ -1,8 +1,10 @@
 form {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  text-align: center;
   padding: 2em 4em;
+}
+
+form div {
+  display: inline;
 }
 
 form .nrrej input {

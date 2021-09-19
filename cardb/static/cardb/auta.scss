@@ -1,24 +1,27 @@
 form{
-    display: flex;
+    text-align: center;
     padding: 2em 4em;
+    div{
+        display: inline;
+    }
    .nrrej{
        input{
-           width: 5em;
+            width: 5em;
         }
    }
    .marka{
        input{
-           width: 7em;
+            width: 7em;
         }
    }
    .rok{
        input{
-           width: 3.5em;
+            width: 3.5em;
         }
    }
    .pesel{
        input{
-           width: 7em;
+            width: 7em;
         }
    }
 }

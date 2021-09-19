@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,20 +7,35 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Logowanie</title>
+    <link rel="stylesheet" href="{% static 'cardb/login.css' %}" type='text/css'>
 </head>
 
 <body>
-    <form method="POST" action="">
-        {% csrf_token %}
-        <input type="username" name="username">
-        <input type="password" name="password">
-        <input type="submit" value="Zaloguj Się">
-    </form>
-    {% for message in messages %}
-    {{message}}
-    {% endfor %}
-    <p>Nie masz konta? <a href="/register/">Zarejestruj się</a></p>
-    <p>Zapomniałeś hasła? <a href="/reset_password/">Resetuj hasło</a></p>
+    <section>
+        <p class="message">
+            {% for message in messages %}
+            {{message}}
+            {% endfor %}
+        </p>
+        <form method="POST" action="">
+            {% csrf_token %}
+            <table>
+                <tr>
+                    <td class="label">Użytkownik</td>
+                    <td><input type="username" name="username"></td>
+                </tr>
+                <tr>    
+                    <td class="label">Hasło</td>
+                    <td><input type="password" name="password"></td>
+                </tr>
+            </table>
+            <p><input type="submit" value="Zaloguj Się"></p>
+        </form>
+        <div class="navlist">
+            <p>Nie masz konta? <a href="/register/">Zarejestruj się</a></p>
+            <p>Zapomniałeś hasła? <a href="/reset_password/">Resetuj hasło</a></p>
+        </div>
+    </section>
 </body>
 
 </html>

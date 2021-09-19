@@ -1,0 +1,39 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;700&display=swap");
+body {
+  background: #bebdbd75;
+  margin: 0;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+section {
+  background: #82dbf1;
+  margin: auto;
+  margin-top: 100px;
+  width: 500px;
+  padding: 2em 0em;
+  text-align: center;
+}
+
+section .message {
+  color: red;
+}
+
+section .message ul {
+  list-style-type: none;
+}
+
+section table {
+  display: inline;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+section table .label {
+  text-align: right;
+}
+
+section .navlist a {
+  color: black;
+}
+/*# sourceMappingURL=login.css.map */

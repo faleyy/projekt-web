@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,36 +6,37 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rejestracja</title>
+    <link rel="stylesheet" href="{% static 'cardb/register.css' %}" type="text/css" />
 </head>
 <body>
-    <form method="post" action="">
-        {% csrf_token %} 
-        <p>
-        {{form.username.label}}
-        {{form.username}}
-        </p>
+    <section>
+        <form method="post" action="">
+            {% csrf_token %} 
+            <div class="error">{{form.password2.errors}}</div>
+            <table>
+                <tr>
+                <td class="label">{{form.username.label}}</td>
+                <td>{{form.username}}</td>
+                </tr>
 
-        <p>
-        {{form.email.label}}
-        {{form.email}}
-        </p>
+                <tr>
+                <td class="label">{{form.email.label}}</td>
+                <td>{{form.email}}</td>
+                </tr>
 
-        <p>
-        {{form.password1.label}}
-        {{form.password1}}
-        {{form.password1.help_text}}
-        </p>
+                <tr>
+                <td class="label">{{form.password1.label}}</td>
+                <td>{{form.password1}}</td>
+                </tr>
 
-        <p>
-        {{form.password2.label}}
-        {{form.password2}}
-        </p>
-        {{form.errors}}
-        {% for message in messages %}
-        {{message}}
-        {% endfor %}
-        <input type="submit" name="register" value="Zarejestruj się">
-    </form>
-    <p>Masz już konto? <a href="/login/">Zaloguj się</a></p>
+                <tr>
+                <td class="label">{{form.password2.label}}</td>
+                <td>{{form.password2}}</td>
+                </tr>
+            </table>
+            <p><input type="submit" name="register" value="Zarejestruj się"></p>
+        </form>
+        <p class="navlist">Masz już konto? <a href="/login/">Zaloguj się</a></p>
+    </section>
 </body>
 </html>

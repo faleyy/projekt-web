@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block head %}
+<title>Mój profil</title>
+<link rel="stylesheet" href="{% static 'cardb/profile.css' %}" type='text/css'>
+{% endblock head %}
+{% block content %}
+<section>
+    <p>Nazwa Użytkownika: {{request.user.username}}</p>
+    <p>Uprawnienia: 
+    {% if request.user.is_superuser %}
+    Superadministrator
+    {% elif request.user.is_staff %}
+    Administrator
+    {% else %} Użytkownik
+    {% endif %}
+    </p>
+    <p><a href="/reset_password/">Resetuj hasło</a></p>
+</section>
+{% endblock content %}
+
