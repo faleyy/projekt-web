@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rejestracja</title>
+</head>
+<body>
+    <form method="post" action="">
+        {% csrf_token %} 
+        <p>
+        {{form.username.label}}
+        {{form.username}}
+        </p>
+
+        <p>
+        {{form.email.label}}
+        {{form.email}}
+        </p>
+
+        <p>
+        {{form.password1.label}}
+        {{form.password1}}
+        {{form.password1.help_text}}
+        </p>
+
+        <p>
+        {{form.password2.label}}
+        {{form.password2}}
+        </p>
+        {{form.errors}}
+        {% for message in messages %}
+        {{message}}
+        {% endfor %}
+        <input type="submit" name="register" value="Zarejestruj się">
+    </form>
+    <p>Masz już konto? <a href="/login/">Zaloguj się</a></p>
+</body>
+</html>

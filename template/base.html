@@ -32,6 +32,15 @@
             {% endif %}
           </ul>
         </nav>
+        <div class="user">
+          <ul>
+            <li><a href="/logout/">Wyloguj Się</a></li>
+            <li><a href="/profile/">Mój Profil</a></li>
+            {% if request.user.is_staff %}
+            <li><a href="/admin/">Panel Administracyjny</a></li>
+            {% endif %}
+          </ul>
+        </div>
       </div>
     </div>
     {% block content %}{% endblock content %}
