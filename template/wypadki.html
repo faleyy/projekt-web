@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load cardb_tags %}
+{% block head %}
+<link rel="stylesheet" href="{% static 'cardb/wypadki.css' %}" type="text/css" />
+<title>Wypadki</title>
+{% endblock head %}
+
+{% block content %}
+
+<form method="get">
+    <div class="wypadekid">
+        <label for="id_wypadekid">ID wypadku:</label>
+        {{myFilter.form.wypadekid__icontains}}
+    </div>
+    <div class="data_wypadku">
+        <label for="data_wypadku__gte">Data wypadku od:</label>
+        {{myFilter.form.data_wypadku__gte}}
+    </div>
+    <div class="data_wypadku">
+        <label for="data_wypadku__lte">do:</label>
+        {{myFilter.form.data_wypadku__lte}}
+    </div>
+    <div class="nr_rejestracyjny">
+        <label for="id_nr_rejestracyjny">Nr rejestracyjny:</label>
+        {{myFilter.form.nr_rejestracyjny__icontains}}
+    </div>
+    <div class="wartosc_straty">
+        <label for="wartosc_straty__gte">Wartość straty od:</label>
+        {{myFilter.form.wartosc_straty__gte}}
+    </div>
+    <div class="wartosc_straty">
+        <label for="wartosc_straty__lte">do:</label>
+        {{myFilter.form.wartosc_straty__lte}}
+    </div>
+    <input type="submit" value="Szukaj" class="search"/>
+</form>
+<table>
+    <tr>
+        <th>ID wypadku<a href="{{request.path}}?{% url_replace 'sortid' 'wypadekid' %}">
+            {% if mySort == 'wypadekid' %}
+            <img src="{% static 'cardb/sort-button-desc.png' %}" alt="sort button descending">
+            {% else %}
+            <img src="{% static 'cardb/sort-button.png' %}" alt="sort button">
+            {% endif %}
+        </a></th>
+        <th>Data wypadku<a href="{{request.path}}?{% url_replace 'sortid' 'data_wypadku' %}">
+            {% if mySort == 'data_wypadku' %}
+            <img src="{% static 'cardb/sort-button-desc.png' %}" alt="sort button descending">
+            {% else %}
+            <img src="{% static 'cardb/sort-button.png' %}" alt="sort button">
+            {% endif %}
+        </a></th>
+        <th>Nr rejestracyjny<a href="{{request.path}}?{% url_replace 'sortid' 'nr_rejestracyjny' %}">
+            {% if mySort == 'nr_rejestracyjny' %}
+            <img src="{% static 'cardb/sort-button-desc.png' %}" alt="sort button descending">
+            {% else %}
+            <img src="{% static 'cardb/sort-button.png' %}" alt="sort button">
+            {% endif %}
+        </a></th>
+        <th>Wartość straty<a href="{{request.path}}?{% url_replace 'sortid' 'wartosc_straty' %}">
+            {% if mySort == 'wartosc_straty' %}
+            <img src="{% static 'cardb/sort-button-desc.png' %}" alt="sort button descending">
+            {% else %}
+            <img src="{% static 'cardb/sort-button.png' %}" alt="sort button">
+            {% endif %}
+        </a></th>
+    </tr>
+    {% for wypadek in wypadki %}
+    <tr>
+        <td>{{wypadek.wypadekid}}</td>
+        <td>{{wypadek.data_wypadku}}</td>
+        <td>{{wypadek.nr_rejestracyjny}}</td>
+        <td>{{wypadek.wartosc_straty}}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock content %}

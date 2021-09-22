@@ -8,20 +8,20 @@ form div {
   display: inline;
 }
 
-form .nrrej input {
+form .wypadekid input {
+  width: 3em;
+}
+
+form .data_wypadku input {
+  width: 10em;
+}
+
+form .nr_rejestracyjny input {
   width: 5em;
 }
 
-form .marka input {
-  width: 7em;
-}
-
-form .rok input {
-  width: 3.5em;
-}
-
-form .pesel input {
-  width: 7em;
+form .wartosc_straty input {
+  width: 4em;
 }
 
 table {
@@ -29,7 +29,7 @@ table {
   font-size: 1.5em;
   margin: auto;
   width: 1000px;
-  border-spacing: 1px;
+  border-spacing: 0px;
   border-collapse: collapse;
 }
 
@@ -43,4 +43,4 @@ table img {
   position: relative;
   float: inline-end;
 }
-/*# sourceMappingURL=auta.css.map */
+/*# sourceMappingURL=wypadki.css.map */

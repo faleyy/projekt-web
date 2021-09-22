@@ -4,8 +4,8 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import PasswordChangeForm
 
-from .models import auto
-from .filters import autoFilter
+from .models import auto, osoba, wypadek
+from .filters import autoFilter, osobaFilter, wypadekFilter
 from .forms import CreateUserForm
 
 
@@ -63,6 +63,18 @@ def profile(request):
 
 
 @login_required
+def osoby(request):
+    data = osoba.objects.all()
+    myFilter = osobaFilter(request.GET, queryset=data)
+    data = myFilter.qs
+    mySort = request.GET.get("sortid", "pesel")
+    data = data.order_by(mySort)
+    return render(
+        request, "osoby.html", {"osoby": data, "myFilter": myFilter, "mySort": mySort}
+    )
+
+
+@login_required
 def auta(request):
     data = auto.objects.all()
     myFilter = autoFilter(request.GET, queryset=data)
@@ -71,4 +83,18 @@ def auta(request):
     data = data.order_by(mySort)
     return render(
         request, "auta.html", {"auta": data, "myFilter": myFilter, "mySort": mySort}
+    )
+
+
+@login_required
+def wypadki(request):
+    data = wypadek.objects.all()
+    myFilter = wypadekFilter(request.GET, queryset=data)
+    data = myFilter.qs
+    mySort = request.GET.get("sortid", "wypadekid")
+    data = data.order_by(mySort)
+    return render(
+        request,
+        "wypadki.html",
+        {"wypadki": data, "myFilter": myFilter, "mySort": mySort},
     )

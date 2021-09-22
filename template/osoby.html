@@ -2,58 +2,33 @@
 {% load static %}
 {% load cardb_tags %}
 {% block head %}
-<link rel="stylesheet" href="{% static 'cardb/auta.css' %}" type="text/css" />
-<title>Auta</title>
+<link rel="stylesheet" href="{% static 'cardb/osoby.css' %}" type="text/css" />
+<title>Osoby</title>
 {% endblock head %}
 
 {% block content %}
 
 <form method="get">
-    <div class="nrrej">
-        <label for="id_nr_rejestracyjny">Nr rejestracyjny:</label>
-        {{myFilter.form.nr_rejestracyjny__icontains}}
-    </div>
-    <div class="marka">
-        <label for="id_marka">Marka:</label>
-        {{myFilter.form.marka__icontains}}
-    </div>
-    <div class="rok">
-        <label for="id_rok_produkcji_gte">Rok rrodukcji od:</label>
-        {{myFilter.form.rok_produkcji__gte}}
-    </div>
-    <div class="rok">
-        <label for="id_rok_produkcji_lte">do:</label>
-        {{myFilter.form.rok_produkcji__lte}}
-    </div>
     <div class="pesel">
         <label for="id_pesel">Pesel:</label>
         {{myFilter.form.pesel__icontains}}
+    </div>
+    <div class="imie">
+        <label for="id_imie">Imię:</label>
+        {{myFilter.form.imie__icontains}}
+    </div>
+    <div class="nazwisko">
+        <label for="id_nazwisko">Nazwisko:</label>
+        {{myFilter.form.nazwisko__icontains}}
+    </div>
+    <div class="typ_miejscowosci">
+        <label for="id_typ_miejscowosci">Typ miejscowości:</label>
+        {{myFilter.form.typ_miejscowosci__iexact}}
     </div>
     <input type="submit" value="Szukaj" class="search"/>
 </form>
 <table>
     <tr>
-        <th>Nr rejestracyjny<a href="{{request.path}}?{% url_replace 'sortid' 'nr_rejestracyjny' %}">
-            {% if mySort == 'nr_rejestracyjny' %}
-            <img src="{% static 'cardb/sort-button-desc.png' %}" alt="sort button descending">
-            {% else %}
-            <img src="{% static 'cardb/sort-button.png' %}" alt="sort button">
-            {% endif %}
-        </a></th>
-        <th>Marka<a href="{{request.path}}?{% url_replace 'sortid' 'marka' %}">
-            {% if mySort == 'marka' %}
-            <img src="{% static 'cardb/sort-button-desc.png' %}" alt="sort button descending">
-            {% else %}
-            <img src="{% static 'cardb/sort-button.png' %}" alt="sort button">
-            {% endif %}
-        </a></th>
-        <th>Rok produkcji<a href="{{request.path}}?{% url_replace 'sortid' 'rok_produkcji' %}">
-            {% if mySort == 'rok_produkcji' %}
-            <img src="{% static 'cardb/sort-button-desc.png' %}" alt="sort button descending">
-            {% else %}
-            <img src="{% static 'cardb/sort-button.png' %}" alt="sort button">
-            {% endif %}
-        </a></th>
         <th>Pesel<a href="{{request.path}}?{% url_replace 'sortid' 'pesel' %}">
             {% if mySort == 'pesel' %}
             <img src="{% static 'cardb/sort-button-desc.png' %}" alt="sort button descending">
@@ -61,13 +36,34 @@
             <img src="{% static 'cardb/sort-button.png' %}" alt="sort button">
             {% endif %}
         </a></th>
+        <th>Imię<a href="{{request.path}}?{% url_replace 'sortid' 'imie' %}">
+            {% if mySort == 'imie' %}
+            <img src="{% static 'cardb/sort-button-desc.png' %}" alt="sort button descending">
+            {% else %}
+            <img src="{% static 'cardb/sort-button.png' %}" alt="sort button">
+            {% endif %}
+        </a></th>
+        <th>Nazwisko<a href="{{request.path}}?{% url_replace 'sortid' 'nazwisko' %}">
+            {% if mySort == 'nazwisko' %}
+            <img src="{% static 'cardb/sort-button-desc.png' %}" alt="sort button descending">
+            {% else %}
+            <img src="{% static 'cardb/sort-button.png' %}" alt="sort button">
+            {% endif %}
+        </a></th>
+        <th>Typ miejscowości<a href="{{request.path}}?{% url_replace 'sortid' 'typ_miejscowosci' %}">
+            {% if mySort == 'typ_miejscowosci' %}
+            <img src="{% static 'cardb/sort-button-desc.png' %}" alt="sort button descending">
+            {% else %}
+            <img src="{% static 'cardb/sort-button.png' %}" alt="sort button">
+            {% endif %}
+        </a></th>
     </tr>
-    {% for auto in auta %}
+    {% for osoba in osoby %}
     <tr>
-        <td>{{auto.nr_rejestracyjny}}</td>
-        <td>{{auto.marka}}</td>
-        <td>{{auto.rok_produkcji}}</td>
-        <td>{{auto.pesel}}</td>
+        <td>{{osoba.pesel}}</td>
+        <td>{{osoba.imie}}</td>
+        <td>{{osoba.nazwisko}}</td>
+        <td>{{osoba.typ_miejscowosci}}</td>
     </tr>
     {% endfor %}
 </table>

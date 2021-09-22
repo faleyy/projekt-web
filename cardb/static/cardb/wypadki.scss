@@ -5,24 +5,24 @@ form{
     div{
         display: inline;
     }
-   .nrrej{
+   .wypadekid{
+       input{
+            width: 3em;
+        }
+   }
+   .data_wypadku{
+       input{
+            width: 10em;
+        }
+   }
+   .nr_rejestracyjny{
        input{
             width: 5em;
         }
    }
-   .marka{
+   .wartosc_straty{
        input{
-            width: 7em;
-        }
-   }
-   .rok{
-       input{
-            width: 3.5em;
-        }
-   }
-   .pesel{
-       input{
-            width: 7em;
+            width: 4em;
         }
    }
 }
@@ -31,7 +31,7 @@ table{
     font-size: 1.5em;
     margin: auto;
     width: 1000px;
-    border-spacing: 1px;
+    border-spacing: 0px;
     border-collapse: collapse;
     tr, th, td{
         border: 1px solid black;

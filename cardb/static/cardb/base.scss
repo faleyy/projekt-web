@@ -6,8 +6,11 @@ body {
 }
 
 .navbar {
+  z-index: 1;
   background: #82dbf1;
   padding: 2em;
+  position: sticky;
+  top: 0;
 
   .logo{
     text-decoration: none;
